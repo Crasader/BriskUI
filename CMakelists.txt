@@ -1,0 +1,33 @@
+cmake_minimum_required(VERSION 3.16)
+project(BriskUI VERSION 0.1)
+
+set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD_REQUIRED true)
+ 
+option(HOST_SYSTEM_NAME_STR_ENABLE "Enable Host System Name" ON)
+if(HOST_SYSTEM_NAME_STR_ENABLE)
+    set(HOST_SYSTEM_NAME_STR "${CMAKE_HOST_SYSTEM_NAME}")
+endif()
+
+configure_file(
+    "${PROJECT_SOURCE_DIR}/proj_val_tube.cmakecfg"
+    "${PROJECT_BINARY_DIR}/ProjValTubeHeader/proj_val_tube.h"
+)
+
+FILE(GLOB_RECURSE DIR_SRCS
+    CONFIGURE_DEPENDS
+    "${PROJECT_SOURCE_DIR}/Source/*.c"
+    "${PROJECT_SOURCE_DIR}/Source/*.cc"
+    "${PROJECT_SOURCE_DIR}/Source/*.cp"
+    "${PROJECT_SOURCE_DIR}/Source/*.cpp"
+    "${PROJECT_SOURCE_DIR}/Source/*.cx"
+    "${PROJECT_SOURCE_DIR}/Source/*.cxx"
+)
+
+add_executable(${PROJECT_NAME} ${DIR_SRCS})
+
+target_include_directories(${PROJECT_NAME} PUBLIC
+    "${PROJECT_SOURCE_DIR}/Source"
+    "${PROJECT_BINARY_DIR}/ProjValTubeHeader"
+    ${EXTRA_INCLUDES}
+)
