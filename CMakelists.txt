@@ -1,12 +1,14 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.10)
 project(BriskUI VERSION 0.1)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED true)
  
-option(HOST_SYSTEM_NAME_STR_ENABLE "Enable Host System Name" ON)
-if(HOST_SYSTEM_NAME_STR_ENABLE)
+option(SYSTEM_NAME_STR_ENABLE "Enable Host System Name" ON)
+if(SYSTEM_NAME_STR_ENABLE)
     set(HOST_SYSTEM_NAME_STR "${CMAKE_HOST_SYSTEM_NAME}")
+    set(TARGET_SYSTEM_NAME_STR "Windows")
+    set(GRAPICS_API "DirectX")
 endif()
 
 configure_file(

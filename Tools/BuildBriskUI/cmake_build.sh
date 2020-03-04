@@ -1,6 +1,4 @@
-stty -echo
-
-cd ..
+cd ../..
 if [ -d build ]
 then
 	sudo rm -rf build
@@ -10,4 +8,5 @@ mkdir build
 cd build
 cmake ..
 
-read -n 1 -p 'Press any key to continue...'
+echo -e "Press any key to continue...\n"
+read -n 1
