@@ -1,15 +1,18 @@
-cmake_minimum_required(VERSION 3.10)
-project(BriskUI VERSION 0.1)
+cmake_minimum_required(VERSION 3.10 FATAL_ERROR)
+project(
+    BriskUI
+    VERSION 0.1
+    DESCRIPTION "A Modern C++ GUI Library and Provides GPU Acceleration."
+    HOMEPAGE_URL "https://github.com/Kiroeko/BriskUI"
+    LANGUAGES C CXX
+)
 
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED true)
  
-option(SYSTEM_NAME_STR_ENABLE "Enable Host System Name" ON)
-if(SYSTEM_NAME_STR_ENABLE)
-    set(HOST_SYSTEM_NAME_STR "${CMAKE_HOST_SYSTEM_NAME}")
-    set(TARGET_SYSTEM_NAME_STR "Windows")
-    set(GRAPICS_API "DirectX")
-endif()
+set(HOST_SYSTEM_NAME_STR "${CMAKE_HOST_SYSTEM_NAME}")
+set(TARGET_SYSTEM_NAME_STR "Windows")
+set(GRAPICS_API "DirectX")
 
 configure_file(
     "${PROJECT_SOURCE_DIR}/proj_val_tube.cmakecfg"

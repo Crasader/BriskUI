@@ -24,7 +24,7 @@ The table below shows the details of the platform to which BriskUI applies:
 | Graphic API | Supports Platform                                               |    Developer-side IDE    |
 |:-----------:|:----------------------------------------------------------------|:------------------------:|
 |   Direct2D  | Windows 7 or Windows Vista with Service Pack 2 (SP2) and later  |    Visual Studio 2019    |
-|   Vulkan    | Windows/linux/Android                                           | N/A (Under construction) |
+|   Vulkan    | Windows/linux/Android                                           |       LLVM & Clang       |
 |   Mental    | Mac OS/iOS                                                      | N/A (Under construction) |
 
 # Installation
